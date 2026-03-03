@@ -44,3 +44,8 @@ f(arr,target,n){
 }
 
 */
+
+/*
+lb = lower_bound(arr.begin(),arr.end(),x) - arr.begin()
+ub = upper_bound(arr.begin(),arr.end(),x) - arr.begin()
+*/
