@@ -59,4 +59,7 @@ int n = arr.size() + 1;
 
     // Return the missing number
     return expSum - sum;
+
+TC => O(n)
+SC => O(1)
 */
