@@ -20,6 +20,11 @@ struct node{
         data=data1
         next=next1
     }
+    or 
+    Node(int data1){
+    data=data1;
+    next=nullptr;
+    }//isme next ko default value de di hai nullptr, to jab bhi hum node create karenge to next ki value nullptr hi rahegi, jab tak hum usko change na kare
 }
 */
 
