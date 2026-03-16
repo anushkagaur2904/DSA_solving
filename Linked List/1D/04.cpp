@@ -10,3 +10,4 @@ while(temp!=NULL){
 }
 return cnt;
 */
+//Time complexity: O(n)
