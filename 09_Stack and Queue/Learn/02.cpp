@@ -1,62 +1,82 @@
-//STACK USING ARRAYS
-//https://www.geeksforgeeks.org/problems/implement-stack-using-array/1
-//not dynamic in nature
+//QUEUE USING ARRAYS
+//https://www.geeksforgeeks.org/problems/implement-queue-using-array/1
 /*
-size has to be known
+class Q{
+    int size;
+    int Q[size];
+    int start =-1;
+    int end = -1;
+    int currSize = 0;
 
-class st{
-    top=-1, int st[size];
-    
     push(x){
-        if(top>=size){
-            error;
+        if(currSize == size){
+            full;
         }
-        top=top+1;
-        st[top]=x;
-    }
-
-    int top(){
-        if(top==-1){
-            empty;
+        if(currSize=0){
+            start=0;
+            end=0;
         }
         else{
-            return st[top];
+            end = (end+1)%size; 
+            //in case if aage ke elements khaali ho toh vaha fill kr skte hai
         }
+        q[end]=x;
+        currsize +=1;
     }
 
     pop(){
-        if(top==-1){
+        element = q[start];
+        if(currSize==0){
             empty;
         }
-        top=top-1;
+        if(currSize==1){
+            start=end=-1;
+        }
+        else{
+            start=(start+1)%size;
+        }
+        currSize -=1;
+        return el;
+    }
+
+    top(){
+        if(currSize==0){
+            empty;
+        }
+        return q[start];
     }
 
     size(){
-        return top+1;
+        return currSize;
     }
 }
 
-TC => PUSH , POP, TOP, SIZE all in O(1)
-SC => depends on size of array
-      
+TC => O(1) for all operations
+SC => O(size) 
+
+
 */
 
 /*
-class myStack {
-    int top;
-    int capacity;
-    int *st;
+class myQueue {
+    int start;
+    int end;
+    int currSize;
+    int *q;
+    int size;
   public:
-    myStack(int n) {
+    myQueue(int n) {
         // Define Data Structures
-        capacity=n;
-        top=-1;
-        st = new int[n];
+        start=-1;
+        end=-1;
+        q = new int[n];
+        currSize =0;
+        size = n;
     }
 
     bool isEmpty() {
-        // check if the stack is empty
-        if(top==-1){
+        // check if the queue is empty
+        if(currSize==0){
             return true;
         }
         else{
@@ -65,8 +85,8 @@ class myStack {
     }
 
     bool isFull() {
-        // check if the stack is full
-        if(top==capacity-1){
+        // check if the queue is full
+        if(currSize == size){
             return true;
         }
         else{
@@ -74,29 +94,51 @@ class myStack {
         }
     }
 
-    void push(int x) {
-        // inserts x at the top of the stack
+    void enqueue(int x) {
+        // Adds an element x at the rear of the queue.
         if(isFull()){
             return;
         }
-        top=top+1;
-        st[top]=x;
+        if(currSize==0){
+            start=0;
+            end=0;
+        }
+        else{
+            end=(end+1)%size;
+        }
+        
+        q[end]=x;
+        currSize+=1;
     }
 
-    void pop() {
-        // removes an element from the top of the stack
+    void dequeue() {
+        // Removes the front element of the queue.
         if(isEmpty()){
             return;
         }
-        top=top-1;
+        if(currSize==1){
+            start=end=-1;
+        }
+        else{
+            start=(start+1)%size;
+        }
+        currSize-=1;
     }
 
-    int peek() {
-        // Returns the top element of the stack
+    int getFront() {
+        // Returns the front element of the queue.
         if(isEmpty()){
             return -1;
         }
-        return st[top];
+        return q[start];
+    }
+
+    int getRear() {
+        // Return the last element of queue
+        if(isEmpty()){
+            return -1;
+        }
+        return q[end];
     }
 };
 */
