@@ -24,11 +24,11 @@ func(greed,size){
 
     while(l<n && r<m){
         if(size[r]>=greed[l]){
-            r++;
+            l++;
         }
-        l++;
+        r++;
     }
-    return r;
+    return l;
 }
 
 TC => O(nlogn + mlogm) for sorting and O(n+m) for traversing the arrays
