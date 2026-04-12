@@ -1,5 +1,6 @@
 //BUBBLE SORT
 //push the max to last by adjacent swap
+//https://www.geeksforgeeks.org/problems/bubble-sort/1
 /*
 step 1 -> 0 to n-1
 step 2 -> 0 to n-2
