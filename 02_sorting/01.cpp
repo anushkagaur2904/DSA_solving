@@ -6,15 +6,16 @@ swap at index 0 and min-index[0 to n-1]
 swap at index 1 and min-index[1 to n-1]
 swap till n-2th index
 
-for(i=0;i<=n-2;i++){
-        mini=i;
-    for(j=i;j<=n-1;j++){
-        if(arr[j]<arr[mini]){
-            mini=j;
+int n = arr.size();
+        for(int i=0;i<n-1;i++){
+            int mini=i;
+            for(int j=i;j<n;j++){
+                if(arr[j]<arr[mini]){
+                    mini=j;
+                }
+            }
+            swap(arr[mini],arr[i]);
         }
-    }
-    swap(arr[mini],arr[i]);
-}
 
 swap =>
 temp=arr[mini]
