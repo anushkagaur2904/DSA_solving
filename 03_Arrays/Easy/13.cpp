@@ -63,3 +63,33 @@ int n = arr.size() + 1;
 TC => O(n)
 SC => O(1)
 */
+
+
+//XOR APPROACH
+/*
+XOR1=0
+for(int i=1;i<=n;i++){
+    XOR1 = XOR1 ^ i;
+}
+XOR2=0;
+for(int i=0;i<n-1;i++){
+    XOR2 = XOR2 ^ arr[i];
+}
+return XOR1 ^ XOR2;
+
+TC => O(2n)
+*/
+
+//MAKE XOR APPROACH BETTER
+/*
+XOR1=0;
+XOR2=0;
+//consider n=5
+for(int i=0;i<n-1;i++){
+    XOR2 = XOR2 ^ arr[i];
+    XOR1 = XOR1 ^ (i+1);//1 to 4 ke elements covered
+    XOR1 = XOR1 ^ n;//5 bhi covered
+}
+TC=> O(n)
+*/
+//XOR approach is better than sum approach because it does not have the risk of integer overflow, which can occur when calculating the sum of a large number of integers.
