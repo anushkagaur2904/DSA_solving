@@ -99,9 +99,9 @@ So if we XOR all the elements of the array then the duplicate elements will canc
 
 XOR=0
 for(i=0 to n){
-    XOR = XOR ^ arr[i];
+    xorr = xorr ^ arr[i];
 }
-return XOR;
+return xorr;
 
 TC => O(n) because we are traversing the array once
 SC => O(1) because we are not using any extra space
