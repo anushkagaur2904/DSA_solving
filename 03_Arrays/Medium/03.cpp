@@ -68,6 +68,7 @@ for(int i=0;i<n;i++){
         count--;
     }
 }
+//to check if element is majority or not
 int cnt1=0;
 for(int i=0;i<n;i++){
     if(nums[i]==el){
