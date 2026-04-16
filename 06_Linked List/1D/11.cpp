@@ -21,3 +21,20 @@ return head;
     temp->next = new Node(val);
     return head;
 }
+
+//Inserting at Kth element
+//K will be from 1 to n+1
+/*
+if k==1 then insert at head
+*/
+Node* insertK(head,el,k){
+    if(head==NULL){
+        if(k==1) return new Node(el);
+        else return NULL;//not possible
+    }
+    if(k==1){
+        Node* temp=new Node(el,head);
+        return temp;
+    }
+    
+}
