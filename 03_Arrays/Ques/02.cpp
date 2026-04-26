@@ -40,7 +40,14 @@ int smallestElement(vector<int> &arr) {
 
     return minElement;
 }
+
 Complexity
 Time: O(n)
 Space: O(1)
+*/
+
+//+++++STL++++++
+/*
+return *max_element(arr.begin(), arr.end());
+return *min_element(arr.begin(), arr.end());
 */
