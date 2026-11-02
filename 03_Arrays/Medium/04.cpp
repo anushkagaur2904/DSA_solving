@@ -2,16 +2,23 @@
 //https://leetcode.com/problems/maximum-subarray/
 //+++++++++BRUTE++++++++++
 /*
-maxi=INT_MIN;
-for(i=0 to n){
-    for(j=i to n){
-        sum=0;
-        for(k=i to j){
-            sum+=arr[k];
-            maxi = max(sum,maxi);
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int maxi = INT_MIN;
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                int sum = 0;
+                for(int k=i;k<=j;k++){
+                    sum+=nums[k];
+                    maxi = max(maxi,sum);
+                }
+            }
         }
+        return maxi;
     }
-}
+};
 TC=> near about O(n^3)
 SC => O(1)
 */
@@ -33,18 +40,25 @@ SC => O(1)
 //+++++++++OPTIMAL++++++++++
 /*
 KADANE'S ALGO
-long long sum = 0;
-maxi = LONG_MIN;
-for(int i=0;i<n;i++){
-    sum+=arr[i];
-    if(sum>maxi){
-        maxi=sum;
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        long long sum = 0;
+        long long maxi = LONG_MIN;
+
+        for(int i=0;i<nums.size();i++){
+            sum+=nums[i];
+            maxi= max(sum,maxi);
+            if(sum>maxi){
+                maxi=sum;
+            }
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return maxi;
     }
-    if(sum<0){
-        sum=0;
-    }
-}
-return maxi;
+};
 TC => O(n)
 SC => O(1)
 */

@@ -12,17 +12,28 @@ So, 2 is the majority element
 /*
 har element ka count nikaalo and if count > n/2 then return that element
 
-for(i=0 to n){
-    count =0;
-    for(j=0 to n){
-        if(arr[j]==arr[i]){
-            count++
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size();
+
+        for(int i = 0; i < n; i++) {
+            int count = 0;
+
+            for(int j = 0; j < n; j++) {
+                if(nums[j] == nums[i]) {
+                    count++;
+                }
+            }
+
+            if(count > n/2) {
+                return nums[i];
+            }
         }
+
+        return -1;
     }
-    if(count > n/2){
-        return arr[i];
-    }
-}
+};
 
 TC: O(n^2) because we are counting each element in the array
 */
@@ -34,15 +45,23 @@ Use a hash map to store the count of each element
 (element, count)
 in map keys are in sorted order
 
-map<int,int>mp;
-for(int i=0;i<n;i++){
-    mp[arr[i]]++;
-}
-for(auto it:mp){
-    if(it.second > n/2){
-        return it.first;
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size();
+        map<int,int> mp;
+
+        for(int i=0;i<n;i++){
+            mp[nums[i]]++;
+        }
+        for(auto it:mp){
+            if(it.second>n/2){
+                return it.first;
+            }
+        }
+        return -1;
     }
-}
+};
 //TC: O(n) + O(nlogn)
 O(n) for counting the elements and O(nlogn) for sorting the map keys
 
@@ -54,33 +73,39 @@ O(n) for counting the elements and O(nlogn) for sorting the map keys
 /*
 MOORE'S VOTING ALGORITHM
 
-int count=0;
-int el;
-for(int i=0;i<n;i++){
-    if(count==0){
-        el=nums[i];
-        count=1;
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int count=0;
+        int el;
+        int n = nums.size();
+
+        for(int i=0;i<n;i++){
+            if(count==0){
+                el=nums[i];
+                count=1;
+            }
+            else if(nums[i]==el){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        int count1=0;
+        for(int i=0;i<n;i++){
+            if(nums[i]==el){
+                count1++;
+            }
+        }
+        if(count1>n/2){
+            return el;
+        }
+        else{
+            return -1;
+        }
     }
-    else if(nums[i]==el){
-        count++;
-    }
-    else{
-        count--;
-    }
-}
-//to check if element is majority or not
-int cnt1=0;
-for(int i=0;i<n;i++){
-    if(nums[i]==el){
-        cnt1++;
-    }       
-}
-if(cnt1>n/2){
-    return el;
-}
-else{
-    return -1;
-}  
+};
 
 TC: O(n) + O(n) because we are iterating through the array twice
 SC: O(1) because we are using only a few variables to store the count and candidate
