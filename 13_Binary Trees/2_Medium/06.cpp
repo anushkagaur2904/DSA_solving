@@ -1,4 +1,4 @@
-//Zig Zag Traversal
+//Zig Zag Traversal (Spiral Traversal)
 //https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/
 
 /*

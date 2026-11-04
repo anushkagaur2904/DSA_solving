@@ -19,7 +19,7 @@ Bool check(Node){
     return true;
 }
 TC => O(N)*O(N)
-
+SC => O(N)
 */
 
 //++++++++OPTIMAL++++++++++
