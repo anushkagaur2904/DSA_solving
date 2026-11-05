@@ -3,21 +3,37 @@
 
 //+++++++BRUTE++++++++
 /*
-Bool check(Node){
-    if node==null return;
+class Solution {
+public:
+    int findHeight(Node* root) {
+        if (root == NULL) return 0;
 
-    Lh = findHLeft(node->left);
-    Rh = findHRight(node->right);
+        int lh = findHeight(root->left);
+        int rh = findHeight(root->right);
 
-    if(abs(Rh-Lh)>1) return false;
+        return 1 + max(lh, rh);
+    }
 
-    Bool left = check(node->left);
-    Bool right = check(node->right);
+    bool check(Node* root) {
+        if (root == NULL) return true;
 
-    if(!left || !right) return false;
+        int lh = findHeight(root->left);
+        int rh = findHeight(root->right);
 
-    return true;
-}
+        if (abs(lh - rh) > 1) return false;
+
+        bool left = check(root->left);
+        bool right = check(root->right);
+
+        if (!left || !right) return false;
+
+        return true;
+    }
+
+    bool isBalanced(Node* root) {
+        return check(root);
+    }
+};
 TC => O(N)*O(N)
 SC => O(N)
 */
