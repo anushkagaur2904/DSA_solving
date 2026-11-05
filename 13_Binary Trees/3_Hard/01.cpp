@@ -1,4 +1,5 @@
-//Print root to leaf path in BT
+//Print root to node path in BT
+
 
 /*
 // Class containing the solution
@@ -45,6 +46,44 @@ public:
 
         // Return the resulting path
         return arr;
+    }
+};
+*/
+
+
+//ROOT TO LEAF PATH
+//https://www.geeksforgeeks.org/problems/root-to-leaf-paths/1
+/*
+class Solution {
+public:
+    void getPaths(TreeNode* root, vector<int>& arr,
+                  vector<vector<int>>& ans) {
+
+        if (!root) return;
+
+        arr.push_back(root->val);
+
+        // If current node is a leaf node
+        if (!root->left && !root->right) {
+            ans.push_back(arr);
+            arr.pop_back();
+            return;
+        }
+
+        getPaths(root->left, arr, ans);
+        getPaths(root->right, arr, ans);
+
+        // Backtracking
+        arr.pop_back();
+    }
+
+    vector<vector<int>> solve(TreeNode* A) {
+        vector<vector<int>> ans;
+        vector<int> arr;
+
+        getPaths(A, arr, ans);
+
+        return ans;
     }
 };
 */
