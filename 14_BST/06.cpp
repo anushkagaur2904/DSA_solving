@@ -1,4 +1,5 @@
 //Validate BST or NOT
+//Check if a tree is BST or BT
 //https://leetcode.com/problems/validate-binary-search-tree/description/
 
 /*
